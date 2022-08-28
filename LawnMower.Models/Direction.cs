@@ -9,8 +9,8 @@ namespace LawnMower.Models
     public enum Direction
     {
         Up, //0     Row: -1, Col: 0
-        Left, //1       Row: 0, Col: -1
+        Right, //1       Row: 0, Col: -1
         Down, //2        Row: 1, Col: 0
-        Right, //3      Row: 0, Col: 1
+        Left, //3      Row: 0, Col: 1
     }
 }

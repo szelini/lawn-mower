@@ -8,15 +8,30 @@ namespace LawnMower.Program
     {
         static void Main(string[] args)
         {
-            RobotMower shaun = new RobotMower(new Coordinate(4, 2), Direction.Up);
             
-            Garden naitt= new Garden();
+            Garden naitt= new Garden("gardenmap2.txt");
+
+            RobotMower shaun = new RobotMower(naitt.RobotStation, Direction.Up);
 
             MowerLogic logic = new MowerLogic(shaun, naitt);
 
-            logic.DepthFirstSearch();
+            logic.MapChanged += Logic_MapChanged;
 
-            logic.GardenDrawToConsole(naitt.Map, shaun.Position, shaun.Direction); //#todo delete
+            ConsoleUI.GardenDrawToConsole(logic.Garden.Map, logic.RobotMower.Position, logic.RobotMower.Direction);
+
+            logic.DepthFirstSearch();
+            
         }
+
+        private static void Logic_MapChanged(object? sender, EventArgs e)
+        {
+            var senderLogic = sender as MowerLogic;
+
+            if(senderLogic != null)
+            {
+                ConsoleUI.GardenDrawToConsole(senderLogic.Garden.Map, senderLogic.RobotMower.Position, senderLogic.RobotMower.Direction);
+            }
+        }
+       
     }
 }
