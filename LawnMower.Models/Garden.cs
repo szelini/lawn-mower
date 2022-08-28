@@ -14,7 +14,7 @@ namespace LawnMower.Models
 
         public Garden()
         {
-
+            this.Map = new int[5, 7] { { 0, 0, 0, 0, 0, 0, 0 }, { 0, -1, 0, 0, 0, -1, 0 }, { 0, -1, 0, -1, 0, -1, 0 }, { 0, -1, 0, 0, 0, -1, 0 }, { 0, 0, 0, 0, 0, 0, 0} };  //#todo data load
         }
 
     }

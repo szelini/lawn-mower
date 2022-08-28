@@ -12,9 +12,9 @@ namespace LawnMower.Models
         private Dictionary<Direction, (int row, int col)> valuesToAdd = new Dictionary<Direction, (int row, int col)>()
         {
             { Direction.Up, (-1,0)},
-            { Direction.Left, (0,-1) },
+            { Direction.Right, (0,1) },
             { Direction.Down, (1,0) },
-            { Direction.Right, (0,1) }
+            { Direction.Left, (0,-1) },
         };
 
         public Coordinate Position { get; set; }
@@ -29,14 +29,12 @@ namespace LawnMower.Models
 
         public void Step()
         {
-            this.Position.Row += valuesToAdd[this.Direction].row;
-            this.Position.Col += valuesToAdd[this.Direction].col;
-        }
 
+        }
 
         public void TurnRight()
         {
-            this.Direction = (Direction)((((int)(this.Direction)) + 1) % 4);
+           
         }
 
     }
