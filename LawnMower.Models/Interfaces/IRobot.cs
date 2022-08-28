@@ -10,7 +10,10 @@ namespace LawnMower.Models.Interfaces
     {
         Coordinate Position { get; set; }
         Direction Direction { get; set; }
+        Coordinate CalculatNextStep();
         void Step();
         void TurnRight();
+        void TurnLeft();
+
     }
 }

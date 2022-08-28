@@ -30,12 +30,26 @@ namespace LawnMower.Models
 
         public void Step()
         {
-
+            this.Position.Row += valuesToAdd[this.Direction].row;
+            this.Position.Col += valuesToAdd[this.Direction].col;
         }
 
         public void TurnRight()
         {
-           
+            this.Direction = (Direction)((((int)(this.Direction)) + 1) % 4);
+        }
+
+        public void TurnLeft()
+        {
+            this.Direction = (Direction)((((int)(this.Direction)) - 1 + 4) % 4);
+        }
+
+        public Coordinate CalculatNextStep()
+        {
+            int newRow = this.Position.Row + valuesToAdd[this.Direction].row;
+            int newCol = this.Position.Col + valuesToAdd[this.Direction].col;
+
+            return new Coordinate(newRow, newCol);
         }
 
     }
