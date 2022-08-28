@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LawnMower.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LawnMower.Models
 {
-    public class RobotMower
+    public class RobotMower : IRobot
     {
 
         private Dictionary<Direction, (int row, int col)> valuesToAdd = new Dictionary<Direction, (int row, int col)>()

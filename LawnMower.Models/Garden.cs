@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LawnMower.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LawnMower.Models
 {
-    public class Garden
+    public class Garden : ITerritory
     {
         public int[,] Map { get; set; }
 
