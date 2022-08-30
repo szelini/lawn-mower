@@ -9,18 +9,23 @@ namespace LawnMower.Program
         static void Main(string[] args)
         {
             
-            Garden naitt= new Garden("gardenmap2.txt");
+            Garden hereIsTheGarden = new Garden("gardenmap1.txt");
 
-            RobotMower shaun = new RobotMower(naitt.RobotStation, Direction.Up);
+            RobotMower shaunTheMower = new RobotMower(hereIsTheGarden.RobotStation, Direction.Up);
 
-            MowerLogic logic = new MowerLogic(shaun, naitt);
+            MowerLogic logic = new MowerLogic(shaunTheMower, hereIsTheGarden);
 
             logic.MapChanged += Logic_MapChanged;
 
             ConsoleUI.GardenDrawToConsole(logic.Garden.Map, logic.RobotMower.Position, logic.RobotMower.Direction);
 
+            Console.ReadKey();
+
             logic.DepthFirstSearch();
-            
+
+            ConsoleUI.GardenDrawToConsole(logic.Garden.Map, logic.RobotMower.Position, logic.RobotMower.Direction);
+
+            Console.ReadKey();
         }
 
         private static void Logic_MapChanged(object? sender, EventArgs e)

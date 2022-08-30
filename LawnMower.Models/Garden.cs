@@ -26,9 +26,7 @@ namespace LawnMower.Models
                 
                 //mower station position is in the file's 1st line
                 string[] coords = lines[0].Split(';');
-                
-                this.RobotStation = new Coordinate(int.Parse(coords[0]), int.Parse(coords[1])); // #todo check if is in map
-                
+              
                 int mapRowsCount = lines.Length - 1;
                 int mapColsCount = mapRowsCount > 0 ? lines[1].Split(',').Length : 0;
 
@@ -44,6 +42,15 @@ namespace LawnMower.Models
                             Map[i,j] = int.Parse(chars[j]);
                         }
                     }
+                }
+
+                if (int.Parse(coords[0]) > 0 && int.Parse(coords[0]) < mapRowsCount 
+                    && int.Parse(coords[1]) > 0 && int.Parse(coords[1]) < mapColsCount)
+                {
+                    this.RobotStation = new Coordinate(int.Parse(coords[0]), int.Parse(coords[1]));
+                } else
+                {
+                    
                 }
             }
 

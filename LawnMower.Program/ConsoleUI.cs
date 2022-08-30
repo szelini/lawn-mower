@@ -11,6 +11,7 @@ namespace LawnMower.Program
     {
         public static void GardenDrawToConsole(int[,] map, Coordinate robopos, Direction dir)
         {
+            Console.Clear();
 
             for (int i = 0; i < map.GetLength(0); i++)
             {
@@ -51,7 +52,7 @@ namespace LawnMower.Program
                         }
                         if (map[i, j] == 1)
                         {
-                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                         }
 
                         if (map[i, j] == -1)
@@ -73,8 +74,8 @@ namespace LawnMower.Program
             }
 
             Console.WriteLine();
-            Thread.Sleep(500);
-            Console.Clear();
+            Thread.Sleep(700);
+            
         }
     }
 }

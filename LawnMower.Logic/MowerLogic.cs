@@ -44,7 +44,7 @@ namespace LawnMower.Logic
                 }
                 MowPosition(); //Feldolgoz(k.tart)
 
-                for (int i = 0; i < 4; i++) //#todo: not to burn directions number
+                for (int i = 0; i < 4; i++) 
                 {
 
                     Coordinate newPosition = this.RobotMower.CalculatNextStep();
